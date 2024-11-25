@@ -1,4 +1,4 @@
-import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 function NavBar() {
   return (
@@ -8,11 +8,22 @@ function NavBar() {
             <h1 className='text-white text-2xl font-bold'>Administración Escolar</h1>
             </div>
             <div className='flex flex-row items-center'>
-            <a href='#' className='text-white text-lg font-semibold mx-4'>Inicio</a>
-            <a href='#' className='text-white text-lg font-semibold mx-4'>Alumnos</a>
-            <a href='#' className='text-white text-lg font-semibold mx-4'>Cursos</a>
-            <a href='#' className='text-white text-lg font-semibold mx-4'>Profesores</a>
-            <a href='#' className='text-white text-lg font-semibold mx-4'>Estudiantes</a>
+            <NavLink to={'/'}>
+            <span className='text-white text-lg font-semibold mx-4'>Inicio</span>
+            </NavLink>
+            <NavLink to={'/estudiantes'}>
+            <span className='text-white text-lg font-semibold mx-4'>Estudiantes</span>
+            </NavLink>
+            <NavLink to={'/cursos'}>
+            <span className='text-white text-lg font-semibold mx-4'>Cursos</span>
+            </NavLink>
+            <NavLink to={'/profesores'}>
+            <span className='text-white text-lg font-semibold mx-4'>Profesores</span>
+            </NavLink>
+            <NavLink to={'/materias'}>
+            <span className='text-white text-lg font-semibold mx-4'>Materias</span>
+            </NavLink>
+
             </div>
         </div>  
     </div>

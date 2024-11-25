@@ -43,6 +43,7 @@ function index() {
             <Sections nombre={seccion.nombre} 
             url={seccion.url}
             SVGIcon={seccion.SVGIcon}
+            key={index}
             />
           )
         })}

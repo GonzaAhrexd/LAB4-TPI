@@ -1,7 +1,10 @@
-
+import NavBar from '../../components/NavBar/NavBar'
 function index() {
   return (
-    <div>index</div>
+    <div>
+        <NavBar />
+
+    </div>
   )
 }
 

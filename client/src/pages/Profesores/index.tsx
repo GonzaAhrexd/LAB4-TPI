@@ -44,22 +44,24 @@ function index() {
                         title: '¿Estás seguro de agregar este profesor?',
                         showCancelButton: true,
                         confirmButtonText: `Si`,
+                        confirmButtonColor: '#172554',
                         icon: 'warning',
                         cancelButtonText: `Cancelar`,
                         }).then(async (result) => {
                           if(result.isConfirmed){
 
                     await createProfesor(data)
+                    Swal.fire({
+                        title: 'Profesor agregado',
+                        confirmButtonText: `Ok`,
+                        icon: 'success',
+                        confirmButtonColor: '#172554',
+                        }).then(async (result) => {
+                            if(result.isConfirmed){
+                                window.location.reload()
+                            }
+                    })
                           }
-                        Swal.fire({
-                            title: 'Profesor agregado',
-                            confirmButtonText: `Ok`,
-                            icon: 'success',
-                            }).then(async (result) => {
-                                if(result.isConfirmed){
-                                    window.location.reload()
-                                }
-                        })
                         })
                     // console.log(data)
                 })
