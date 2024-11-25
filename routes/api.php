@@ -9,6 +9,7 @@ use App\Models\Course;
 use App\Models\Commission;
 use App\Models\Subject; 
 use App\Models\Professor;
+use App\Models\Course_Student;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\CourseController;
 /*
@@ -307,6 +308,55 @@ o Campos necesarios: id, student_id, course_id, commission_id.
 o Asegurarse de que un estudiante solo pueda estar en una comisión específica dentro de un curso.
 
 */
+
+Route::post('/create-course-student', function(Request $request) {
+    $course_student = new Course_Student();
+    $course_student->student_id = $request->student_id;
+    $course_student->course_id = $request->course_id;
+    $course_student->commission_id = $request->commission_id;
+    $course_student->save();
+    return response()->json(['message' => 'Inscripción de estudiante creada exitosamente']);
+});
+
+Route::get('/course-student', function() {
+    $course_students = Course_Student::all();
+    return response()->json($course_students);
+});
+
+Route::put('/update-course-student/{id}', function(Request $request, $id) {
+    $course_student = Course_Student::find($id);
+    if ($course_student) {
+        $course_student->student_id = $request->student_id;
+        $course_student->course_id = $request->course_id;
+        $course_student->commission_id = $request->commission_id;
+        $course_student->save();
+        return response()->json(['message' => 'Inscripción de estudiante actualizada exitosamente']);
+    } else {
+        return response()->json(['message' => 'Inscripción de estudiante no encontrada']);
+    }
+});
+
+Route::delete('/delete-course-student/{id}', function($id) {
+    $course_student = Course_Student::find($id);
+    if ($course_student) {
+        $course_student->delete();
+        return response()->json(['message' => 'Inscripción de estudiante eliminada exitosamente']);
+    } else {
+        return response()->json(['message' => 'Inscripción de estudiante no encontrada']);
+    }
+});
+
+// Asegurarse de que un estudiante solo pueda estar en una comisión específica dentro de un curso
+Route::post('/assign-student-to-commission', function(Request $request) {
+    $student = Student::find($request->student_id);
+    $commission = Commission::find($request->commission_id);
+    if ($student && $commission) {
+        $student->commissions()->attach($commission);
+        return response()->json(['message' => 'Estudiante asignado a comisión exitosamente']);
+    } else {
+        return response()->json(['message' => 'Estudiante o comisión no encontrados']);
+    }
+});
 
 
 
