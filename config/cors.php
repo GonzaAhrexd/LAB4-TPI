@@ -15,20 +15,13 @@ return [
     |
     */
 
-    'paths' => ['api/*', 'sanctum/csrf-cookie'],
-
-    'allowed_methods' => ['*'],
-
-    'allowed_origins' => ['*'],
-
+    'paths' => ['api/*', 'sanctum/csrf-cookie'], // Asegúrate de incluir las rutas necesarias
+    'allowed_methods' => ['*'], // Permite todos los métodos HTTP (GET, POST, etc.)
+    'allowed_origins' => ['http://localhost:5173'], // Dominio del frontend
     'allowed_origins_patterns' => [],
-
-    'allowed_headers' => ['*'],
-
+    'allowed_headers' => ['*'], // Permite todos los encabezados
     'exposed_headers' => [],
-
     'max_age' => 0,
-
-    'supports_credentials' => false,
+    'supports_credentials' => true, // Habilita credenciales
 
 ];

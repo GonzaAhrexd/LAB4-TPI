@@ -199,22 +199,30 @@ o Asignar un profesor a una o varias comisiones.
 
 */
 
+// Crear
 Route::post('/create-professor', function(Request $request) {
+
     $professor = new Professor();
     $professor->name = $request->name;
+    $professor->specialization = $request->specialization;
     $professor->save();
     return response()->json(['message' => 'Profesor creado exitosamente']);
+
 });
 
+// Listar
 Route::get('/professor', function() {
     $professors = Professor::all();
     return response()->json($professors);
 });
 
+
+// Editar
 Route::put('/update-professor/{id}', function(Request $request, $id) {
     $professor = Professor::find($id);
     if ($professor) {
         $professor->name = $request->name;
+        $professor->specialization = $request->specialization;
         $professor->save();
         return response()->json(['message' => 'Profesor actualizado exitosamente']);
     } else {
