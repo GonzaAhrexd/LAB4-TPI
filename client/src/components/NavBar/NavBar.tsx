@@ -5,7 +5,7 @@ function NavBar() {
     <div className='bg-blue-950 flex flex-row items-center justify-center'>
         <div className='flex flex-row items-center justify-between w-full max-w-6xl px-4 py-2'>
             <div className='flex flex-row items-center'>
-            <h1 className='text-white text-2xl font-bold'>Administración Escolar</h1>
+            <h1 className='hidden md:block text-white text-2xl font-bold'>Administración Escolar</h1>
             </div>
             <div className='flex flex-row items-center'>
             <NavLink to={'/'}>
