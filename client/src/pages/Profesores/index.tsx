@@ -74,20 +74,20 @@ function index() {
           </div>
             </form>
             <h2 className="text-2xl">Lista de Profesores</h2>
-            <DataTable
-                                columns={ColumnsProfesores}
-                                data={listaProfesores}
-                                pagination
-                                expandableRows
-                                expandableRowsComponent={expandedComponents}
-                                customStyles={customStyles}
-                                responsive={true}
-                                striped={true}
-                                highlightOnHover={true}
-                                noDataComponent="No hay denuncias para mostrar"
-                                defaultSortFieldId={"Fecha"}
-                                expandableIcon={expandableIcon}
-                            />
+                <DataTable
+                    columns={ColumnsProfesores}
+                    data={listaProfesores}
+                    pagination
+                    expandableRows
+                    expandableRowsComponent={expandedComponents}
+                    customStyles={customStyles}
+                    responsive={true}
+                    striped={true}
+                    highlightOnHover={true}
+                    noDataComponent="No hay denuncias para mostrar"
+                    defaultSortFieldId={"Fecha"}
+                    expandableIcon={expandableIcon}
+                />
         </div>
     </div>
   )
