@@ -1,13 +1,54 @@
-import React from 'react'
-
 import NavBar from '../../components/NavBar/NavBar'
-
+import Sections from '../../components/Sections/Sections'
 function index() {
+
+  const seccionesPagina = [
+    {
+      nombre: 'Profesores',
+      url: '/profesores',
+      SVGIcon: null
+    },
+    {
+      nombre: 'Materias',
+      url: '/materias',
+      SVGIcon: null
+    },
+    {
+      nombre: 'Inscripciones',
+      url: '/inscripciones',
+      SVGIcon: null
+    },
+    {
+      nombre: 'Estudiantes',
+      url: '/estudiantes',
+      SVGIcon: null
+    },
+    {
+      nombre: 'Cursos',
+      url: '/cursos',
+      SVGIcon: null
+    }
+  ]
   return (
     <div>
         <NavBar />
-        <h1>Home</h1>
+        <div className='m-4'>
 
+        <h1 className='text-4xl'>Bienvenido al Sistema de Administración Escolar</h1>
+
+        <h2 className='text-2xl mt-2'>Secciones</h2>
+        <div className='grid gap-1 grid-cols-1 sm:grid-cols-1 sm:gap-5 md:grid-cols-3 xl:grid-cols-5 w-full p-2'>
+        {seccionesPagina.map((seccion, index) => {
+          return ( 
+            <Sections nombre={seccion.nombre} 
+            url={seccion.url}
+            SVGIcon={seccion.SVGIcon}
+            />
+          )
+        })}
+        </div>
+
+        </div>
     </div>
   )
 }

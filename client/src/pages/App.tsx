@@ -8,6 +8,13 @@ import { useRoutes, BrowserRouter } from 'react-router-dom'
 // Páginas
 // LOGIN E INICIO
 import Home from './Home'
+import Comisiones from './Comisiones'
+import Cursos from './Cursos'
+import Estudiantes from './Estudiantes'
+import Inscripciones from './Inscripciones'
+import Materias from './Materias'
+import Profesores from './Profesores'
+
 // 404
 // import NotFound from './NotFound'
 // DENUNCIAS
@@ -20,8 +27,13 @@ const AppRoutes = () => {
   let routes = useRoutes([
     // Global
     { path: '/', element: <Home /> },
-    // { path: '*', element: <NotFound /> },
-  ])
+    { path: '/comisiones', element: <Comisiones /> },
+    { path: '/cursos', element: <Cursos /> },
+    { path: '/estudiantes', element: <Estudiantes /> },
+    { path: '/inscripciones', element: <Inscripciones /> },
+    { path: '/materias', element: <Materias /> },
+    { path: '/profesores', element: <Profesores /> },
+      ])
   return routes
 }
 
