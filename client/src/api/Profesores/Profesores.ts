@@ -45,3 +45,13 @@ export const getProfesor = async (id: number) => {
         return error
     }
 }
+
+export const getProfesoresByName = async (name: string) => {
+    try {
+        const response = await axios.get(`/professor-by-name/${name}`)
+
+        return response.data
+    } catch (error) {
+        return error
+    }
+}

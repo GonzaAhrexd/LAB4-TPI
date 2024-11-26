@@ -12,7 +12,7 @@ import { customStyles } from "../../GlobalConst/customStyles";
 import ColumnsMaterias from './ColumnsEstudiantes'
 import expandedComponents from './expandedComponents'
 
-import { MagnifyingGlassCircleIcon, PlusCircleIcon } from '@heroicons/react/24/solid'
+import { MagnifyingGlassCircleIcon, PlusCircleIcon } from '@heroicons/react/24/outline'
 
 function index() {
 

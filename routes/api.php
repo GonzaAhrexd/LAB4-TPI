@@ -294,6 +294,13 @@ Route::get('/professor/{id}', function($id) {
     }
 });
 
+// Filtrar profesores por nombre
+Route::get('/professor-by-name/{name}', function($name) {
+    $professors = Professor::where('name', $name)->get();
+    return response()->json($professors);
+});
+
+
 // Estudiantes
 /*
     Estudiantes (Student):
