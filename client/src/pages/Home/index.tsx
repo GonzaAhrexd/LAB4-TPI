@@ -32,6 +32,10 @@ function index() {
       nombre: 'Comisiones',
       url: '/comisiones',
       SVGIcon: null
+    },{
+      nombre: 'Búsqueda',
+      url: '/búsqueda',
+      SVGIcon: null
     }
   ]
   return (

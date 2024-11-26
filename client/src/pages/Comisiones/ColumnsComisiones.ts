@@ -11,41 +11,57 @@
 // Datos que se mostrarán en la tabla de denuncias
 type Row = {
     id: number;
-    name: string;
-    email: string;
+    aula: string;
+    horario: string;
+    profesor: string;
+    curso: string;
 }
 
 // Columnas de la tabla de denuncias
-const ColumnsProfesores = [
+const ColumnsComisiones = [
     {
         // Nombre de usuario
         name: 'ID',
         selector: (row:Row) => row.id,
         sortable: true,
+        style: {            fontSize: '14px',
+            fontWeight: 500,
+        },
+    },
+    {
+        name: 'Aula',
+        selector: (row:Row) => row.aula,
         style: {
             fontSize: '14px',
             fontWeight: 500,
         },
     },
     {
-        // Nombre
-        name: 'Nombre',
-        selector: (row:Row) => row.name,
+        name: 'Horario',
+        selector: (row:Row) => row.horario,
         style: {
             fontSize: '14px',
             fontWeight: 500,
         },
     },
     {
-        // Nombre
-        name: 'Email',
-        selector: (row:Row) => row.email,
+        name: 'Profesor',
+        selector: (row:Row) => row.profesor,
         style: {
             fontSize: '14px',
             fontWeight: 500,
         },
     },
+    {
+        name: 'Curso',
+        selector: (row:Row) => row.curso,
+        style: {
+            fontSize: '14px',
+            fontWeight: 500,
+        },
+    },
+
      
 ];
 
-export default ColumnsProfesores
+export default ColumnsComisiones

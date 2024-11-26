@@ -37,3 +37,11 @@ export const deleteProfessor = async (id: number) => {
         return error
     }
 }
+export const getProfesor = async (id: number) => {
+    try {
+        const response = await axios.get(`/professor/${id}`)
+        return response.data
+    } catch (error) {
+        return error
+    }
+}

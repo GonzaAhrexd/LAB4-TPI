@@ -7,17 +7,20 @@
     style: Estilos de la columna
 ----------------------------------------------------------------------------------------------------------
 */
+
+// Datos que se mostrarán en la tabla de denuncias
 type Row = {
     id: number;
     name: string;
-    subject_id: number;
-    subject_name: string;
+    specialization: string;
 }
-// Luego usa `subject_name` en el selector
-const ColumnsCursos = [
+
+// Columnas de la tabla de denuncias
+const ColumnsProfesores = [
     {
+        // Nombre de usuario
         name: 'ID',
-        selector: (row: Row) => row.id,
+        selector: (row:Row) => row.id,
         sortable: true,
         style: {
             fontSize: '14px',
@@ -25,22 +28,15 @@ const ColumnsCursos = [
         },
     },
     {
+        // Nombre
         name: 'Nombre',
-        selector: (row: Row) => row.name,
+        selector: (row:Row) => row.name,
         style: {
             fontSize: '14px',
             fontWeight: 500,
         },
     },
-    {
-        name: 'Materia',
-        selector: (row: Row) => row.subject_name,
-        style: {
-            fontSize: '14px',
-            fontWeight: 500,
-        },
-    },
+     
 ];
 
-
-export default ColumnsCursos;
+export default ColumnsProfesores

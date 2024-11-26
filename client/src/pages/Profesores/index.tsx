@@ -84,7 +84,7 @@ function index() {
                     responsive={true}
                     striped={true}
                     highlightOnHover={true}
-                    noDataComponent="No hay denuncias para mostrar"
+                    noDataComponent="No hay profesores para mostrar"
                     defaultSortFieldId={"Fecha"}
                     expandableIcon={expandableIcon}
                 />

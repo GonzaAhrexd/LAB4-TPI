@@ -20,3 +20,11 @@ export const updateComision = async (comision: any) => {
   return response.data;
 };
 
+export const getComisionesPorCurso = async (curso_id: number) => {
+  const response = await axios.get(`/commission-by-course/${curso_id}`);
+  return response.data;
+}
+export const getComisionesPorHorario = async (horario: string) => {
+   const response = await axios.get(`/commission-by-schedule/${horario}`);
+    return response.data;
+}

@@ -86,6 +86,15 @@ Route::delete('/delete-subject/{id}', function($id) {
     }
 });
 
+Route::get('/subject/{id}', function($id) {
+    $subject = Subject::find($id);
+    if ($subject) {
+        return response()->json($subject);
+    } else {
+        return response()->json(['message' => 'Materia no encontrada']);
+    }
+});
+
 // Cursos
 /*
     Cursos (Course):
@@ -134,6 +143,23 @@ Route::get('/course-by-subject/{subject_id}', function($subject_id) {
     $courses = Course::where('subject_id', $subject_id)->get();
     return response()->json($courses);
 });
+
+// Filtrar curso por comisiones asociadas
+Route::get('/course-by-commission/{commission_id}', function($commission_id) {
+        $comission = Commission::find($commission_id);
+        $course = Course::find($comission->course_id);
+        return response()->json($course);
+});
+
+Route::get('/course/{id}', function($id) {
+    $course = Course::find($id);
+    if ($course) {
+        return response()->json($course);
+    } else {
+        return response()->json(['message' => 'Curso no encontrado']);
+    }
+});
+
 
 /*
     Comisiones (Commission):
@@ -193,7 +219,7 @@ Route::get('/commission-by-course/{course_id}', function($course_id) {
 
 // Filtrar comisiones por horario
 Route::get('/commission-by-schedule/{schedule}', function($schedule) {
-    $commissions = Commission::where('schedule', $schedule)->get();
+    $commissions = Commission::where('horario', $schedule)->get();
     return response()->json($commissions);
 });
 
@@ -258,6 +284,15 @@ Route::post('/assign-professor-to-commission', function(Request $request) {
     }
 });
 
+// Filtrar profesores por id
+Route::get('/professor/{id}', function($id) {
+    $professor = Professor::find($id);
+    if ($professor) {
+        return response()->json($professor);
+    } else {
+        return response()->json(['message' => 'Profesor no encontrado']);
+    }
+});
 
 // Estudiantes
 /*
@@ -311,8 +346,16 @@ Route::get('/student-by-name/{name}', function($name) {
 
 // Filtrar estudiantes por curso
 Route::get('/student-by-course/{course_id}', function($course_id) {
-    $students = Student::where('course_id', $course_id)->get();
-    return response()->json($students);
+    // Tiene que buscar todos los estudiantes de la tabla course-student que tengan el id = course_id , pero devolvelos en formato json de la tabla Student buscando el student_id de cada student_course
+
+    $students = Course_Student::where('course_id', $course_id)->get();
+
+    // Ahora,los estudiantes de que se encontaron en Course_student mapealos con la tabla Student
+    $studentsFinally = $students->map(function($student) {
+        return Student::find($student->student_id);
+    });
+
+    return response()->json($studentsFinally);
 });
 
 /*

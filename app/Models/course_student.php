@@ -11,7 +11,7 @@ class course_student extends Model
 
     protected $table = 'course_student';
 
-    protected $fillable = ['course_id', 'student_id'];
+    protected $fillable = ['course_id', 'student_id', 'commission_id'];
 
     /**
      * Relación con Course.
@@ -28,4 +28,13 @@ class course_student extends Model
     {
         return $this->belongsTo(Student::class);
     }
+
+    /**
+     * Relación con Commission.
+     */
+    public function commission()
+    {
+        return $this->belongsTo(Commission::class);
+    }
+    
 }

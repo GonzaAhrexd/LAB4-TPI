@@ -19,3 +19,13 @@ export const deleteEstudiante = async (id: number) => {
     const response = await axios.delete(`/delete-student/${id}`);
     return response.data;
 }
+
+export const getEstudianteByName = async (name: string) => {
+    const response = await axios.get(`/student-by-name/${name}`);
+    return response.data;
+}
+
+export const getEstudianteByCurso = async (curso_id: number) => {
+    const response = await axios.get(`/student-by-course/${curso_id}`);
+    return response.data;
+}
