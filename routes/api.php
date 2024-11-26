@@ -144,9 +144,14 @@ o Filtrar comisiones por curso y horario.
 
 Route::post('/create-commission', function(Request $request) {
     $commission = new Commission();
-    $commission->classroom = $request->classroom;
-    $commission->schedule = $request->schedule;
+
+    // Devuelve un json con los errores
+    // return response()->json($request->course_id);
+    
+    $commission->aula = $request->aula;
+    $commission->horario = $request->horario;
     $commission->course_id = $request->course_id;
+    $commission->professor_id = $request->professor_id;
     $commission->save();
     return response()->json(['message' => 'Comisión creada exitosamente']);
 });
@@ -159,9 +164,10 @@ Route::get('/commission', function() {
 Route::put('/update-commission/{id}', function(Request $request, $id) {
     $commission = Commission::find($id);
     if ($commission) {
-        $commission->classroom = $request->classroom;
-        $commission->schedule = $request->schedule;
+        $commission->aula = $request->aula;
+        $commission->horario = $request->horario;
         $commission->course_id = $request->course_id;
+        $commission->professor_id = $request->professor_id;
         $commission->save();
         return response()->json(['message' => 'Comisión actualizada exitosamente']);
     } else {

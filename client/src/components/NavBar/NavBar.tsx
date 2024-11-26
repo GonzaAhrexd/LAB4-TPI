@@ -23,6 +23,10 @@ function NavBar() {
             <NavLink to={'/materias'}>
             <span className='text-white text-lg font-semibold mx-4'>Materias</span>
             </NavLink>
+            <NavLink to={'/comisiones'}>
+            <span className='text-white text-lg font-semibold mx-4'>Comisiones</span>
+            </NavLink>
+
 
             </div>
         </div>  

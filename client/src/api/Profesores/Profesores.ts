@@ -14,7 +14,7 @@ export const createProfesor = async (data: any) => {
 export const getProfesores = async () => {
     try {
         const response = await axios.get('/professors')
-        return response
+        return response.data
     } catch (error) {
         return error
     }

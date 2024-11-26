@@ -10,7 +10,7 @@ class Commission extends Model
     
     use HasFactory;
 
-    protected $fillable = ['aula', 'horario', 'course_id'];
+    protected $fillable = ['aula', 'horario', 'course_id', 'professor_id'];
 
     /**
      * Relación con Course: una Commission pertenece a un Course.

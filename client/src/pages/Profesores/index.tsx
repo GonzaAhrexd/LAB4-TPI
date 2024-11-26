@@ -19,7 +19,7 @@ function index() {
         const loadProfesores = async () => {
             const profesores = await getProfesores()
             // @ts-ignore
-            setListaProfesores(profesores?.data)
+            setListaProfesores(profesores)
         }
 
         loadProfesores()
