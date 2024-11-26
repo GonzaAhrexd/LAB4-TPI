@@ -28,3 +28,9 @@ export const getComisionesPorHorario = async (horario: string) => {
    const response = await axios.get(`/commission-by-schedule/${horario}`);
     return response.data;
 }
+
+export const getComisionesExcel = async () => {
+  const response = await axios.get('/comissions-show-excel');
+  return response.data;
+
+}

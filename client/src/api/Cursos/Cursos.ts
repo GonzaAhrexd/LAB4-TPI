@@ -35,3 +35,8 @@ export const getCursosByComision = async (comision_id: number) => {
   const response = await axios.get(`/course-by-commission/${comision_id}`);
   return [response.data];
 }
+
+export const getCursoOrderByMateria = async () => {
+  const response = await axios.get(`/course-order-subject/`);
+  return response.data;
+}

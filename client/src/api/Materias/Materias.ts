@@ -24,3 +24,4 @@ export const getMateria = async (id: number) => {
     const response = await axios.get(`/subject/${id}`);
     return response.data;
 }
+

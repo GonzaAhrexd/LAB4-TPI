@@ -300,6 +300,27 @@ Route::get('/professor-by-name/{name}', function($name) {
     return response()->json($professors);
 });
 
+Route::get('/professor-comissions', function(){
+    // Lista las comisiones con el nombre del profesor en lugar de su id y luego ordenalos haciendo que los mismos profesores salgan juntos, por ejemplo, si Gaona tiene 2 comisiones que salga uno debajo del otro
+    $comissions = Commission::all();
+
+    $comissions = $comissions->map(function($comission) {
+        $professor = Professor::find($comission->professor_id);
+        $course = Course::find($comission->course_id);
+        return [
+            'aula' => $comission->aula,
+            'horario' => $comission->horario,
+            'curso' => $course->name,
+            'profesor' => $professor->name
+        ];
+    });
+
+    $comissions = $comissions->sortBy('profesor')->values();
+
+    return response()->json($comissions);
+    
+});
+
 
 // Estudiantes
 /*
@@ -365,6 +386,44 @@ Route::get('/student-by-course/{course_id}', function($course_id) {
     return response()->json($studentsFinally);
 });
 
+
+
+Route::get('/students-with-inscriptions', function() {
+
+    // Obtener todos los estudiantes
+    $students = Student::all();
+
+    // Procesar la información de cada estudiante
+    $studentsWithInscriptions = $students->map(function($student) {
+        // Obtener las inscripciones del estudiante
+        $inscriptions = Course_Student::where('student_id', $student->id)->get();
+        
+        // Mapear las inscripciones para crear un string con los nombres de los cursos y las comisiones
+        $courseNames = $inscriptions->map(function($inscription) {
+            $course = Course::find($inscription->course_id);
+            return $course->name;
+        })->implode(', '); // Convertir el array a un string separado por comas
+
+        $commissionNames = $inscriptions->map(function($inscription) {
+            $commission = Commission::find($inscription->commission_id);
+            return $commission->aula;
+        })->implode(', '); // Convertir el array a un string separado por comas
+
+        // Devolver el formato esperado
+        return [
+            'nombre' => $student->name, 
+            'cursos' => $courseNames, 
+            'comisiones' => $commissionNames
+        ];
+    });
+
+    // Retornar la respuesta en formato JSON
+    return response()->json($studentsWithInscriptions);
+
+});
+
+
+
 /*
 Inscripciones de Estudiantes (Course_Student):
 o Crear, editar, eliminar y listar inscripciones de estudiantes a cursos y comisiones.
@@ -423,6 +482,44 @@ Route::post('/assign-student-to-commission', function(Request $request) {
 });
 
 
+Route::get('/course-order-subject/', function() {
+    // Obtener todos los cursos y mapearlos con el nombre de la materia
+    $courses = Course::all()->map(function($course) {
+        $subject = Subject::find($course->subject_id);
+        return [
+            'nombre' => $course->name,
+            'materia' => $subject->name
+        ];
+    });
+
+    // Ordenar los cursos por el nombre de la materia
+    $courses = $courses->sortBy('materia')->values();
+
+    return response()->json($courses);
+});
+
+Route::get('/comissions-show-excel', function() {
+    // Muestra todas las comisiones, pero muestra con los nombres de los cursos y profesores buscando por sus id    
+    $comissions = Commission::all();
+
+    $comissions = $comissions->map(function($comission) {
+        $course = Course::find($comission->course_id);
+        $professor = Professor::find($comission->professor_id);
+        return [
+            'aula' => $comission->aula,
+            'horario' => $comission->horario,
+            'curso' => $course->name,
+            'profesor' => $professor->name
+        ];
+    });
+
+
+
+return response()->json($comissions);
+
+
+
+});
 
 
 /*

@@ -29,3 +29,8 @@ export const getEstudianteByCurso = async (curso_id: number) => {
     const response = await axios.get(`/student-by-course/${curso_id}`);
     return response.data;
 }
+
+export const getEstudiantesWithInscripciones = async () => {
+    const response = await axios.get('/students-with-inscriptions');
+    return response.data;
+}

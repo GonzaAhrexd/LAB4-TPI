@@ -14,7 +14,7 @@ import Estudiantes from './Estudiantes'
 import Inscripciones from './Inscripciones'
 import Materias from './Materias'
 import Profesores from './Profesores'
-
+import Reportes from './Reportes'
 // 404
 // import NotFound from './NotFound'
 // DENUNCIAS
@@ -33,6 +33,7 @@ const AppRoutes = () => {
     { path: '/inscripciones', element: <Inscripciones /> },
     { path: '/materias', element: <Materias /> },
     { path: '/profesores', element: <Profesores /> },
+    { path: '/reportes', element: <Reportes /> },
       ])
   return routes
 }

@@ -4,6 +4,11 @@ function index() {
 
   const seccionesPagina = [
     {
+      nombre: 'Reportes',
+      url: '/reportes',
+      SVGIcon: null
+    },
+    {
       nombre: 'Profesores',
       url: '/profesores',
       SVGIcon: null
@@ -42,7 +47,7 @@ function index() {
         <h1 className='text-4xl'>Bienvenido al Sistema de Administración Escolar</h1>
 
         <h2 className='text-2xl mt-2'>Secciones</h2>
-        <div className='grid gap-1 grid-cols-1 sm:grid-cols-1 sm:gap-5 md:grid-cols-3 xl:grid-cols-3 w-full p-2'>
+        <div className='grid gap-1 grid-cols-1 sm:grid-cols-1 sm:gap-5 md:grid-cols-3 xl:grid-cols-4 w-full p-2'>
         {seccionesPagina.map((seccion, index) => {
           return ( 
             <Sections nombre={seccion.nombre} 
