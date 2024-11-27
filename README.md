@@ -24,6 +24,18 @@ Antes de comenzar, asegúrate de tener instalado:
 - **NPM** o **Yarn** para la gestión de paquetes en React.  
 - **XAMP** para el servidor Apache y MySQL
 
+## 📷 Capturas 
+Algunas capturas de pantalla del proyecto
+
+![Pantalla principal](https://cdn.discordapp.com/attachments/740761148642689055/1311121451515904051/image.png?ex=6747b481&is=67466301&hm=3c731bf2a67064d0c9764f7eb3069e112702af11aff5673e92a3067236d62e1f&)
+
+![Agregar profesores](https://cdn.discordapp.com/attachments/740761148642689055/1311121508545986620/image.png?ex=6747b48f&is=6746630f&hm=24ed96cef3de6a6ab49209b0077e27dd9843e3db035236ff524dc720f71c6c3a&)
+
+![Buscar estudiantes](https://cdn.discordapp.com/attachments/740761148642689055/1311121599763841104/image.png?ex=6747b4a4&is=67466324&hm=a79146b32b7b0964fb4e1c35d98ee008d441e20c99e6a6ac1f4d51be28145e72&)
+
+![Generar reportes](https://cdn.discordapp.com/attachments/740761148642689055/1311121646689452103/image.png?ex=6747b4b0&is=67466330&hm=6576c886aa8de8685b5b4c776c901380204f06ba1a076304bda852ed7a64478c&)
+
+
 ## 🚀 Instalación  
 Sigue estos pasos para instalar y configurar el proyecto en tu entorno local:  
 
