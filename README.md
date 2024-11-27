@@ -76,7 +76,7 @@ Sigue estos pasos para instalar y configurar el proyecto en tu entorno local:
    ```
 
 6. **Iniciar el servidor Apache y MySQL en XAMP**
-(https://cdn.discordapp.com/attachments/740761148642689055/1311128707863412756/image.png?ex=6747bb43&is=674669c3&hm=0541f7e3fc3164370822e06c93ea68cf7630f8b314efb0bbb1d7d2b3bd726af0&)
+![Server XAMP](https://cdn.discordapp.com/attachments/740761148642689055/1311128707863412756/image.png?ex=6747bb43&is=674669c3&hm=0541f7e3fc3164370822e06c93ea68cf7630f8b314efb0bbb1d7d2b3bd726af0&)
 
 7. **Inicia el servidor:**  
    ```bash
